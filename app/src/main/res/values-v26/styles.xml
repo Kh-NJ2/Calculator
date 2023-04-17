@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="buttonsnumbers">
+        <item name="android:background">@drawable/roundedcorner</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:onClick">changeNumberAction</item>
+
+    </style>
+
+    <style name="buttonop">
+        <item name="android:background">@drawable/roundedcorner</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/redish</item>
+        <item name="android:onClick">opAction</item>
+    </style>
+
+    <style name="buttonop2">
+        <item name="android:background">@drawable/roundedcorner</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/blueish</item>
+    </style>
+</resources>
