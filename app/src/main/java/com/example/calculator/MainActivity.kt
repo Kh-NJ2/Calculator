@@ -1,11 +1,13 @@
 package com.example.calculator
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
 import android.widget.Button
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.Guideline
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import org.mariuszgromada.math.mxparser.Expression
@@ -14,6 +16,7 @@ import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var guideline: Guideline
     private var canAddOperation = false
     private var canAddDecimal = true
     private var canAddNumber = true
@@ -25,7 +28,27 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
 
+        guideline = findViewById<Guideline>(R.id.guideline)
+
         eqTV.movementMethod = ScrollingMovementMethod()
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        if(windowManager.defaultDisplay.height <= 2000){
+            val params = guideline.layoutParams as ConstraintLayout.LayoutParams
+            params.guidePercent = 0f // set the percentage value to 25%
+
+            guideline.layoutParams = params
+        } else {
+            val params = guideline.layoutParams as ConstraintLayout.LayoutParams
+            params.guidePercent = 0.55f // set the percentage value to 25%
+
+            guideline.layoutParams = params
+
+        }
+
     }
 
     fun deleteAction(view: View) {
@@ -105,7 +128,7 @@ class MainActivity : AppCompatActivity() {
     fun equalAction(view: View) {
         equal++
         try {
-            var expresion = getInputExpression()
+            val expresion = getInputExpression()
             var result = Expression(expresion).calculate()
 
             if (result.isNaN()) {
