@@ -111,7 +111,6 @@ class MainActivity : AppCompatActivity() {
                     eqTV.append(view.text)
                     canAddOperation = false
                     canAddDecimal = true
-
                     if(eqTV.text.last().toString() == "%"){
                         canAddNumber = false
                     }
